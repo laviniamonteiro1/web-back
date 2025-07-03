@@ -1,9 +1,13 @@
 from abc import ABC, abstractmethod
+from typing import Optional # Importar Optional
+
 from blog.domain.entities.user import User
+from blog.domain.value_objects.email_vo import Email # Importar Email
+from blog.domain.value_objects.password import Password # Importar Password
 
 class UserRepository(ABC):
     @abstractmethod
-    def login(self, email: str, password: str) -> User:
+    def login(self, email: Email, password: Password) -> Optional[User]: # Tipos de argumento e retorno atualizados
         pass
 
     @abstractmethod
